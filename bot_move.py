@@ -13,7 +13,6 @@ def bot_pawn(board,height,width,player_location,enemy_location,difficulty):
         while True:
             pawn = random.choice(pawn_list)
             pawn_position = player_location[pawn]
-            print(pawn, pawn_position)
             if pawn_position[0] + 1 < height or pawn_position[0] - 1 >= 0 or pawn_position[
                 1] + 1 < width or pawn_position - 1 >= 0:
                 if pawn_position[0] + 1 < height and pawn_position[0] - 1 >= 0 and pawn_position[1] + 1 < width and \
@@ -97,7 +96,7 @@ def bot_pawn(board,height,width,player_location,enemy_location,difficulty):
                         elif board[(pawn_position[0])][(pawn_position[1]) + 1] == 0:
                             return (pawn)
                             break
-    elif difficulty=="Normal":
+    elif difficulty=="Normal" or difficulty=="Unfair":
         #GATHERING ENEMY LOCATION
         enemy=[]
         for i in enemy_location.values():
@@ -116,7 +115,6 @@ def bot_pawn(board,height,width,player_location,enemy_location,difficulty):
             while True:
                 pawn = random.choice(pawn_list)
                 pawn_position = player_location[pawn]
-                print(pawn,pawn_position)
                 if pawn_position[0] + 1 < height or pawn_position[0] - 1 >= 0 or pawn_position[1] + 1 < width or pawn_position - 1 >= 0:
                     if pawn_position[0] + 1 < height and pawn_position[0] - 1 >= 0 and pawn_position[1] + 1 < width and pawn_position[1] - 1 >= 0:
                         if board[(pawn_position[0] + 1)][(pawn_position[1])] != 0 and board[(pawn_position[0] - 1)][
@@ -211,7 +209,7 @@ def bot_move(pawn,board,player_location,enemy_location,difficulty):
         x += random.randint(-2, 2)
         y += random.randint(-2, 2)
         return [x,y]
-    elif difficulty=="Normal":
+    elif difficulty=="Normal" or difficulty=="Unfair":
         enemy = []
         for i in enemy_location.values():
             enemy.append(i)
