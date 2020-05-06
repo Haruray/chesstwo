@@ -16,7 +16,7 @@ class Player():
                 return -20
             elif self.job=="Ninja":
                 return 10
-        elif command=="defense":
+        elif command=="defend":
             if self.job == "Gladiator":
                 return 0
             elif self.job=="Guardian":
@@ -155,6 +155,10 @@ def validate_move(move_pos, current_pos):
 def special_move(command):
     global current_turn
     this_turn = globals()[current_turn] #TAKING current_turn VARIABLE TO WORK WITH
+    if current_turn=="player1":
+        opponent=globals()["player2"]
+    else:
+        opponent=globals()["player1"]
     #rng shit
     if command == "attack":
         chance = round(random.random() * 100)  # chance percentage
@@ -168,10 +172,10 @@ def special_move(command):
 
     elif command == "defend":
         chance = round(random.random() * 100)  # chance percentage
-        if this_turn.job=="Gladiator":
+        if opponent.job=="Gladiator":
             chance=0
         else:
-            chance += this_turn.chance_bonus(command)
+            chance += opponent.chance_bonus(command)
         if chance >= 100: chance = 100
         elif chance<0:chance=0
         roullete = [True for i in range(chance)]  # roullete of true and false
