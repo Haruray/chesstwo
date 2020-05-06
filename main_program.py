@@ -8,6 +8,10 @@ class Player():
         self.position = position
         self.job = job
         self.bot=bot
+        if self.bot==True:
+            self.bot_bonus = 20
+        else:
+            self.bot_bonus=0
     def chance_bonus(self,command):
         if command == "attack":
             if self.job == "Gladiator":
@@ -87,12 +91,17 @@ def move_pawn(player_sym):
         command = validate[1]
     else:#if not bot, then player make a move
         print("move to? (left number then upper number. Example : 4 2) :", end=" ")
-        x, y = map(int, input().split())  # movement
-        validate = validate_move([x, y], current_pawn_pos)
-        while not (validate[0]):  # validate movement
-            print("cant move there. Do it again")
-            x, y = map(int, input().split())
-            validate = validate_move([x, y], current_pawn_pos)
+        while True:
+            try:
+                x, y = map(int, input().split())  # movement
+                validate = validate_move([x, y], current_pawn_pos)
+                while not (validate[0]):  # validate movement
+                    print("cant move there. Do it again")
+                    x, y = map(int, input().split())
+                    validate = validate_move([x, y], current_pawn_pos)
+                break
+            except:
+                print("Input invalid. Try again")
         command = validate[1]
 
     if command == "move":
@@ -163,6 +172,7 @@ def special_move(command):
     if command == "attack":
         chance = round(random.random() * 100)  # chance percentage
         chance+= this_turn.chance_bonus(command)
+        if difficulty == "Unfair": chance+=this_turn.bot_bonus
         if chance>=100: chance=100 #MAXIMUM CHANCE VALUE IS 100
         elif chance<0: chance=0 #MINIMUM CHANCE VALUE IS 0
         roullete = [True for i in range(chance)]  # roullete of true and false. It will be filled with True for "chance" times
@@ -173,9 +183,10 @@ def special_move(command):
     elif command == "defend":
         chance = round(random.random() * 100)  # chance percentage
         if opponent.job=="Gladiator":
-            chance=0
+            chance=10
         else:
             chance += opponent.chance_bonus(command)
+            if difficulty == "Unfair": chance += this_turn.bot_bonus
         if chance >= 100: chance = 100
         elif chance<0:chance=0
         roullete = [True for i in range(chance)]  # roullete of true and false
@@ -195,10 +206,11 @@ c=int(input())
 if c==2:
     #BOT SETUP
     bot=True
-    print("Select difficulty: 1)Easy, or 2)Normal?")
+    print("Select difficulty: 1)Easy, 2)Normal?, or 3)Unfair")
     c=int(input())
     if c==1: difficulty="Easy"
-    else: difficulty="Normal"
+    elif c==2: difficulty="Normal"
+    else:difficulty="Unfair"
 else:
     bot=False #IF PLAYER DOESNT PLAY AGAINTS BOT, THEN THE VALUE WILL BE FALSE
 print("1)custom job, or 2)default?")
