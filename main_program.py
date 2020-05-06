@@ -172,7 +172,7 @@ def special_move(command):
     if command == "attack":
         chance = round(random.random() * 100)  # chance percentage
         chance+= this_turn.chance_bonus(command)
-        if difficulty == "Unfair": chance+=this_turn.bot_bonus
+        if difficulty == "Unfair" and this_turn.bot==True: chance+=this_turn.bot_bonus
         if chance>=100: chance=100 #MAXIMUM CHANCE VALUE IS 100
         elif chance<0: chance=0 #MINIMUM CHANCE VALUE IS 0
         roullete = [True for i in range(chance)]  # roullete of true and false. It will be filled with True for "chance" times
@@ -186,14 +186,13 @@ def special_move(command):
             chance=10
         else:
             chance += opponent.chance_bonus(command)
-            if difficulty == "Unfair": chance += this_turn.bot_bonus
+            if difficulty == "Unfair" and opponent.bot==True: chance += opponent.bot_bonus
         if chance >= 100: chance = 100
         elif chance<0:chance=0
         roullete = [True for i in range(chance)]  # roullete of true and false
         for i in range((100 - chance)):
             roullete.append(False)
         return (random.choice(roullete))  # random pick
-
 
 # MAIN PROGRAM
 #BASIC SETUP
@@ -254,10 +253,25 @@ while (True): #GAME STARTS
         print("=====================PLAYER 1 TURN========================")
         move_pawn(player1.symbol) #MOVING PAWN BY CALLING move_pawn FUNCTION
         arena.create_arena() #CREATING ARENA AGAIN
-        current_turn = "player2" #SWITCHING TURN
+        #WINNING CHECK
+        if len(player1.position)==0:
+            print("PLAYER 2 WINS!!!")
+            break
+        elif len(player2.position)==0:
+            print("PLAYER 1 WINS!!!")
+            break
+        else:
+            current_turn = "player2" #SWITCHING TURN
 
     elif current_turn == "player2":
         print("=====================PLAYER 2 TURN========================")
         move_pawn(player2.symbol)
         arena.create_arena()
-        current_turn = "player1"
+        if len(player1.position)==0:
+            print("PLAYER 2 WINS!!!")
+            break
+        elif len(player2.position)==0:
+            print("PLAYER 1 WINS!!!")
+            break
+        else:
+            current_turn = "player1"
