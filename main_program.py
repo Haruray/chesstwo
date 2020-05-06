@@ -235,7 +235,6 @@ current_turn = "player1"
 
 while (True): #GAME STARTS
     if current_turn == "player1":
-        os.system("cls")
         print("=====================PLAYER 1 TURN========================")
         move_pawn(player1.symbol) #MOVING PAWN BY CALLING move_pawn FUNCTION
         arena.create_arena() #CREATING ARENA AGAIN
