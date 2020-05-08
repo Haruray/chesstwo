@@ -12,21 +12,25 @@ class Player():
             self.bot_bonus = 20
         else:
             self.bot_bonus=0
+        if self.job=="Guardian":
+            self.survive=10
+        else:
+            self.survive=0
     def chance_bonus(self,command):
         if command == "attack":
             if self.job == "Gladiator":
                 return 30
             elif self.job=="Guardian":
-                return -20
+                return -10
             elif self.job=="Ninja":
                 return 10
         elif command=="defend":
             if self.job == "Gladiator":
                 return 0
             elif self.job=="Guardian":
-                return 30
+                return 20
             elif self.job=="Ninja":
-                return -30
+                return -20
 
 class Arena():
     def __init__(self, height, width):
@@ -171,7 +175,7 @@ def special_move(command):
     #rng shit
     if command == "attack":
         chance = round(random.random() * 100)  # chance percentage
-        chance+= this_turn.chance_bonus(command)
+        chance+= this_turn.chance_bonus(command) - opponent.survive
         if difficulty == "Unfair" and this_turn.bot==True: chance+=this_turn.bot_bonus
         if chance>=100: chance=100 #MAXIMUM CHANCE VALUE IS 100
         elif chance<0: chance=0 #MINIMUM CHANCE VALUE IS 0
