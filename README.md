@@ -11,6 +11,6 @@ After completing this small project, i'll add UI, more maps, more game mechanics
 just run "main_program.py"
 
 ## SECOND PHASE OF PROJECT--START!
-So, i completed basic mechanic with 3 different class. Now, i'll start the second phase of this project : Multiple pawn with different classes! 
-Each player now will have pawns with 3 different classes : Gladiator, Guardian, and Ninja. I'll add new ability to each class as a addition.
+So, i completed basic mechanic with 3 different classes. Now, i'll start the second phase of this project : Multiple pawns with different classes! 
+Each player now will have pawns with 3 different classes : Gladiator, Guardian, and Ninja. I'll add new ability to each class as a new addition.
 Stay tuned!
