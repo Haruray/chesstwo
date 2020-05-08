@@ -96,6 +96,38 @@ def bot_pawn(board,height,width,player_location,enemy_location,difficulty):
                         elif board[(pawn_position[0])][(pawn_position[1]) + 1] == 0:
                             return (pawn)
                             break
+                    else:
+                        if pawn_position[0] == height - 1:
+                            if board[(pawn_position[0]) - 1][(pawn_position[1])] != 0:
+                                if board[(pawn_position[0]) - 1][(pawn_position[1])][0] != "Y":
+                                    return (pawn)
+                                    break
+                            elif board[(pawn_position[0]) - 1][(pawn_position[1])] == 0:
+                                return (pawn)
+                        elif pawn_position[0] == 0:
+                            if board[(pawn_position[0]) + 1][(pawn_position[1])] != 0:
+                                if board[(pawn_position[0]) + 1][(pawn_position[1])][0] != "Y":
+                                    return (pawn)
+                                    break
+                            elif board[(pawn_position[0]) - 1][(pawn_position[1])] == 0:
+                                return (pawn)
+                        if pawn_position[1] == width - 1:
+                            if board[(pawn_position[0])][(pawn_position[1]) - 1] != 0:
+                                if board[(pawn_position[0])][(pawn_position[1]) - 1][0] != "Y":
+                                    return (pawn)
+                                    break
+                            elif board[(pawn_position[0])][(pawn_position[1]) - 1] == 0:
+                                return (pawn)
+                                break
+                        elif pawn_position[1] == 0:
+                            if board[(pawn_position[0])][(pawn_position[1]) + 1] != 0:
+                                if board[(pawn_position[0])][(pawn_position[1]) + 1][0] != "Y":
+                                    return (pawn)
+                                    break
+                            elif board[(pawn_position[0])][(pawn_position[1]) + 1] == 0:
+                                return (pawn)
+                                break
+
     elif difficulty=="Normal" or difficulty=="Unfair":
         #GATHERING ENEMY LOCATION
         enemy=[]
@@ -196,6 +228,37 @@ def bot_pawn(board,height,width,player_location,enemy_location,difficulty):
                             elif board[(pawn_position[0])][(pawn_position[1])+1]==0:
                                 return (pawn)
                                 break
+                        else:
+                            if pawn_position[0]==height-1:
+                                if board[(pawn_position[0]) - 1][(pawn_position[1])] != 0:
+                                    if board[(pawn_position[0]) - 1][(pawn_position[1])][0] != "Y":
+                                        return (pawn)
+                                        break
+                                elif board[(pawn_position[0]) - 1][(pawn_position[1])] == 0:
+                                    return (pawn)
+                            elif pawn_position[0]==0:
+                                if board[(pawn_position[0]) + 1][(pawn_position[1])] != 0:
+                                    if board[(pawn_position[0]) + 1][(pawn_position[1])][0] != "Y":
+                                        return (pawn)
+                                        break
+                                elif board[(pawn_position[0]) - 1][(pawn_position[1])] == 0:
+                                    return (pawn)
+                            if pawn_position[1]==width-1:
+                                if board[(pawn_position[0])][(pawn_position[1]) - 1] != 0:
+                                    if board[(pawn_position[0])][(pawn_position[1]) - 1][0] != "Y":
+                                        return (pawn)
+                                        break
+                                elif board[(pawn_position[0])][(pawn_position[1]) - 1] == 0:
+                                    return (pawn)
+                                    break
+                            elif pawn_position[1]==0:
+                                if board[(pawn_position[0])][(pawn_position[1]) + 1] != 0:
+                                    if board[(pawn_position[0])][(pawn_position[1]) + 1][0] != "Y" :
+                                        return (pawn)
+                                        break
+                                elif board[(pawn_position[0])][(pawn_position[1]) + 1] == 0 :
+                                    return (pawn)
+                                    break
 def bot_move(pawn,board,player_location,enemy_location,difficulty):
     # GATHERING ENEMY LOCATION
     pawn_list = []
