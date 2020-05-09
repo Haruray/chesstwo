@@ -11,6 +11,7 @@ Each player now have pawns with different class: Gladiator, Defender, and Ninja 
 * Gladiator has higher chance to kill enemies, and if a Gladiator kills an enemy, he will enter "Berserk" mode for one next turn.
 * Defender has higher chance of surviving from enemy attacks and also higher chance to perform counter-attack. If a Defender holding ground, then his defense and counter attack chance will be increased (max 5 turns).
 * Ninja can move 2 blocks at a time and also he can't be counter-attacked.
+
 This version has bot with 2 difficulty available : Easy and Normal.
 
 ### How to play
