@@ -4,13 +4,14 @@ For real, this is just for learning.
 
 Creating basic mechanic like pawn movement, input validation, and random generator for attack/defense. This project also my first use OOP in python.
 
-Choose between 3 classes: Gladiator, Guardian, and Ninja. Gladiator has higher chance to kill enemies, Guardian has higher chance of defending themself, and Ninja can move 2 blocks at a time.
-After completing this small project, i'll add UI, more maps, more game mechanics, and many more!
+## Vanilla Version
+Each player choose between 3 classes: Gladiator, Guardian, and Ninja. Gladiator has higher chance to kill enemies, Guardian has higher chance of defending themself, and Ninja can move 2 blocks at a time. This version has bot with 3 difficulty available : Easy, Normal, and Unfair.
+## Battle Tendency Version
+Each player now have pawns with different class: Gladiator, Defender, and Ninja (note: in this version, Defender is alternate name of Guardian). 
+Gladiator has higher chance to kill enemies, and if a Gladiator kills an enemy, he will enter "Berserk" mode for one next turn.
+Defender has higher chance of surviving from enemy attacks and also higher chance to perform counter-attack. If a Defender holding ground, then his defense and counter attack chance will be increased (max 5 turns).
+Ninja can move 2 blocks at a time and also he can't be counter-attacked.
+This version has bot with 2 difficulty available : Easy and Normal.
 
 ### How to play
-just run "main_program.py"
-
-## SECOND PHASE OF PROJECT--START!
-So, i completed basic mechanic with 3 different classes. Now, i'll start the second phase of this project : Multiple pawns with different classes! 
-Each player now will have pawns with 3 different classes : Gladiator, Guardian, and Ninja. I'll add new ability to each class as a new addition.
-Stay tuned!
+Choose which version to play, and run "main_program.py"
