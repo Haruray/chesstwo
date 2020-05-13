@@ -16,3 +16,11 @@ This version has bot with 2 difficulty available : Easy and Normal.
 
 ### How to play
 Choose which version to play, and run "main_program.py"
+
+### Upcoming updates
+* New difficulty on both version : hard, and adding "unfair" difficulty to battle tendency version.
+* Unfair difficulty fix to make it better.
+* Pawns limit increase (from 10 to 12).
+* Random drops to increase attack/defense/counter-attack chance.
+* New pawn class : Saint. More info later.
+* New game mode : King's Bounty. More info later.
