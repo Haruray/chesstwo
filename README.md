@@ -18,8 +18,8 @@ This version has bot with 2 difficulty available : Easy and Normal.
 Choose which version to play, and run "main_program.py"
 
 ### Upcoming updates
+* Overall bot_move script fix to make it better
 * New difficulty on both version : hard, and adding "unfair" difficulty to battle tendency version.
-* Unfair difficulty fix to make it better.
 * Battle Tendency only : Pawns limit increase (from 10 to 12).
 * Battle Tendency only : Random drops to increase attack/defense/counter-attack chance.
 * Battle Tendency only : New pawn class, Saint. More info later.
