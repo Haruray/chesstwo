@@ -25,3 +25,4 @@ Choose which version to play, and run "main_program.py"
 * Battle Tendency only : New pawn class, Saint. More info later.
 * Battle Tendency only : New game mode, King's Bounty. More info later.
 * Both player will have Magic(s), based on their pawns class. More info later.
+* Battle Tendency only : New game mode, Gladiator's Quest. More info later.
